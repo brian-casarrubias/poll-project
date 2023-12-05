@@ -1,0 +1,40 @@
+
+
+
+
+{% extends 'poll/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content1 %}
+    <title>Create Poll</title>
+{% endblock content1 %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4"> <!-- boot strap predefined classes, css-->
+                        Create Poll
+                    </legend>
+
+                   
+                </fieldset>
+
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">
+                        Create
+                    </button>
+                </div>
+        </form>
+
+        
+
+       
+
+
+    </div>
+{% endblock content %}
+

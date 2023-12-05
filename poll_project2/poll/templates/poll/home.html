@@ -1,0 +1,40 @@
+
+{% extends 'poll/base.html' %}
+
+{% block content %}
+
+
+    <div class="poll-container">
+        
+        <form method="post" >
+                {% csrf_token %}
+
+                
+                    <h1 class="poll-title">{{ pll.question }}</h1>
+                    <label class="choice-label">
+                        <input type="radio" name="choice" value="{{ pll.choice_text1 }}" required="true">
+                        {{ pll.choice_text1 }}
+                    </label>
+                    <label class="choice-label">
+                        <input type="radio" name="choice" value="{{ pll.choice_text2 }}" required="true">
+                        {{ pll.choice_text2 }}
+                    </label>
+
+                    
+                    <button class="submit-btn" type="submit" onclick="redirect()"  >Submit Vote</button>
+                   
+
+                    <!-- id="start-poll-button">
+                    href="{{ next_poll.get_absolute_url }} -->
+                    <!-- class="submit-btn" -->
+        </form>
+    </div>
+
+   
+
+{% endblock content %}
+
+{% block content1 %}
+    <title>Poll</title>
+
+{% endblock content1 %}

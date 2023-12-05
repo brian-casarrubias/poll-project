@@ -1,0 +1,42 @@
+
+
+{% extends 'poll/base2.html' %}
+
+
+    {% block content1 %}
+            <title>Results</title>
+    {% endblock content1 %}
+
+    {% block content %}
+        <div class="results-container">
+            <h1 style="margin-left: 150px; margin-bottom: 50px;">Poll Results</h1>
+
+            <!-- First set of choices -->
+            
+            {% for za in zaza %}
+            <h2>{{ za.question }}</h2>
+                <div class="result-item">
+                    <div class="choice-label">{{ za.choice_text1 }}</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ za.choice_text1_value }}%;"></div>
+                            
+                    </div>
+                    <div class="percentage">{{ za.choice_text1_value }}%</div>
+                </div>
+
+                <div class="result-item">
+                    <div class="choice-label">{{ za.choice_text2 }}</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: {{ za.choice_text2_value }}%;"></div>
+                          
+                    </div>
+                    <div class="percentage">{{ za.choice_text2_value }}%</div>
+                </div>
+
+            {% endfor %}
+            <a style="margin-left: 225px; margin-top: 50px;" href="{% url 'home-page' %}" class="submit-btn">Start Over</a>
+            
+        
+
+        </div>
+    {% endblock content %}
